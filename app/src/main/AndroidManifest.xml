@@ -27,6 +27,21 @@
             android:name=".NewTaskActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".TaskDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"/>
+
+        <service
+            android:name=".data.TaskUpdateService"
+            android:exported="false" />
+
     </application>
 
 </manifest>

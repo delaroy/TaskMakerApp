@@ -76,11 +76,11 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
+        if (id == R.id.action_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             return true;
-        }*/
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -96,11 +96,11 @@ public class MainActivity extends AppCompatActivity implements
     public void onItemClick(View v, int position) {
         //TODO: Handle list item click event
 
-       /* Intent intent = new Intent(MainActivity.this, TaskDetailActivity.class);
+       Intent intent = new Intent(MainActivity.this, TaskDetailActivity.class);
 
-        Uri currentTaskUri = ContentUris.withAppendedId(DatabaseContract.CONTENT_URI, mAdapter.getItemId(position));
+        Uri currentTaskUri = ContentUris.withAppendedId(TaskContract.CONTENT_URI, mAdapter.getItemId(position));
         intent.setData(currentTaskUri);
-        startActivity(intent);*/
+        startActivity(intent);
 
     }
 
