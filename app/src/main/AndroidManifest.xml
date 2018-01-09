@@ -42,6 +42,11 @@
             android:name=".data.TaskUpdateService"
             android:exported="false" />
 
+        <service
+            android:name=".reminders.ReminderAlarmService"
+            android:exported="false" />
+
+
     </application>
 
 </manifest>

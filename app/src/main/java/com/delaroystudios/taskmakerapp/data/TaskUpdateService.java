@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 
+import com.delaroystudios.taskmakerapp.reminders.ReminderAlarmService;
+
 
 /* Process DB actions on a background thread */
 public class TaskUpdateService extends IntentService {
@@ -76,10 +78,10 @@ public class TaskUpdateService extends IntentService {
         int count = getContentResolver().delete(uri, null, null);
 
         //Cancel any reminders that might be set for this item
-        /*PendingIntent operation =
+        PendingIntent operation =
                 ReminderAlarmService.getReminderPendingIntent(this, uri);
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        manager.cancel(operation);*/
+        manager.cancel(operation);
 
         Log.d(TAG, "Deleted "+count+" tasks");
     }

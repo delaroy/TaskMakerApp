@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.delaroystudios.taskmakerapp.data.TaskContract;
+import com.delaroystudios.taskmakerapp.reminders.AlarmScheduler;
 import com.delaroystudios.taskmakerapp.views.DatePickerFragment;
 
 import java.util.Calendar;
@@ -119,8 +120,8 @@ public class TaskDetailActivity extends AppCompatActivity implements
             Toast.makeText(this, "Task alarm cannot be set to a past date", Toast.LENGTH_SHORT).show();
             return;
         }else {
-          /*  new AlarmScheduler().scheduleAlarm(getApplicationContext(), dueDate, taskUri);
-            Toast.makeText(this, "Task alarm set ", Toast.LENGTH_SHORT).show();*/
+           new AlarmScheduler().scheduleAlarm(getApplicationContext(), dueDate, taskUri);
+            Toast.makeText(this, "Task alarm set ", Toast.LENGTH_SHORT).show();
         }
 
     }
