@@ -44,7 +44,7 @@ public class TaskProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         mDbHelper = new DbHelper(getContext());
-
+        manageCleanupJob();
         return true;
     }
 
@@ -171,6 +171,27 @@ public class TaskProvider extends ContentProvider {
         }
 
         return count;
+    }
+
+    /* Initiate a periodic job to clear out completed items */
+    private void manageCleanupJob() {
+        Log.d(TAG, "Scheduling cleanup job");
+        JobScheduler jobScheduler = (JobScheduler) getContext()
+                .getSystemService(Context.JOB_SCHEDULER_SERVICE);
+
+        //Run the job approximately every hour
+        long jobInterval = 3600000L;
+
+        ComponentName jobService = new ComponentName(getContext(), CleanupJobService.class);
+        JobInfo task = new JobInfo.Builder(CLEANUP_JOB_ID, jobService)
+                .setMinimumLatency(jobInterval)
+                .setOverrideDeadline(jobInterval)
+                .setPersisted(true)
+                .build();
+
+        if (jobScheduler.schedule(task) != JobScheduler.RESULT_SUCCESS) {
+            Log.w(TAG, "Unable to schedule cleanup job");
+        }
     }
 
 }

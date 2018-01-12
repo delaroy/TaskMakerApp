@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <string name="app_name">TaskMakerApp</string>
+        <string name="app_name">TaskMaker</string>
         <string name="task_description">What Needs to Get Done?</string>
         <string name="task_priority">Priority Task</string>
         <string name="task_date">Due Date</string>
